@@ -1,0 +1,26 @@
+
+h1, p {
+    text-align: center;
+}
+
+form {
+    width: 600px; 
+    margin: auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 12px #aaa; 
+}  
+
+input {
+    margin: 5px;
+}
+
+/* label {
+    display: block;
+} */
+
+.error {
+    color: red;
+}
+
