@@ -4,7 +4,7 @@ h1, p {
 }
 
 form {
-    width: 600px; 
+    width: 50%; 
     margin: auto;
     border: 1px solid #ccc;
     padding: 20px;
@@ -12,15 +12,42 @@ form {
     box-shadow: 2px 2px 12px #aaa; 
 }  
 
+div {
+    width: 80%; 
+    margin: auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 12px #aaa; 
+} 
+
 input {
     margin: 5px;
 }
 
-/* label {
-    display: block;
-} */
 
 .error {
     color: red;
 }
+
+.btnGreen {
+    color: green;
+    font-weight: bold;
+}
+
+.btnGreenDisabled {
+    color: rgb(150, 250, 150);
+    font-weight: bold;
+}
+
+.btnRed {
+    color: red;
+    font-weight: bold;
+}
+
+.btnRedDisabled {
+    color: rgb(250, 150, 150);
+    font-weight: bold;
+}
+
 
