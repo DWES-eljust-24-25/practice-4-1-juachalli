@@ -1,9 +1,11 @@
 <!-- header.part.php -->
 
+<?php include __DIR__ . '/main.part.php'; ?>
+
 <body>
 
 <header>
-    <h3>Contact App 24/25 --- Server-side Web Development</h3>
+    <h3><?= $pageHeader ?></h3>
 </header>
 
 <hr>

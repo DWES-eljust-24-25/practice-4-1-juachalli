@@ -98,12 +98,12 @@ include __DIR__ . '/parts/header.part.php';
         <input type="text" id="email" name="email" value="<?= $contact['email'] ?? '' ?>"><br>
         <span class="error"> <?= $errors['email'] ?? '' ?> </span> <br>
 
-        <label>Type<label><br>
-        <input type="checkbox" name="favourite" value="Favourite" <?= ($contact['favourite'] ?? '') == 'Favourite' ? 'checked' : '' ?>>
+        <label>Type</label><br>
+        <input type="checkbox" name="favourite" value="Favourite" <?= ($contact['favourite'] ?? '') == 'Favourite' ? 'checked' : '' ?> >
         <label for="favourite">Favourite</label><br>
-        <input type="checkbox" name="important" value="Important" <?= ($contact['important'] ?? '') == 'Important' ? 'checked' : '' ?>>
+        <input type="checkbox" name="important" value="Important" <?= ($contact['important'] ?? '') == 'Important' ? 'checked' : '' ?> >
         <label for="important">Important</label><br>
-        <input type="checkbox" name="archived" value="Archived" <?= ($contact['archived'] ?? '') == 'Archived' ? 'checked' : '' ?>>
+        <input type="checkbox" name="archived" value="Archived" <?= ($contact['archived'] ?? '') == 'Archived' ? 'checked' : '' ?> >
         <label for="archived">Archived</label><br><br>
     </div>
     <div>

@@ -1,5 +1,10 @@
-<?php include __DIR__ . '/parts/head.part.php'; ?>
-<?php include __DIR__ . '/parts/header.part.php'; ?>
+<?php 
+
+include __DIR__ . '/parts/main.part.php';
+include __DIR__ . '/parts/head.part.php';
+include __DIR__ . '/parts/header.part.php'; 
+
+?>
 
     <form>
         <div>
