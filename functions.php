@@ -96,46 +96,26 @@ function updateContact(array $contact, array $contacts) : array {
 }
 
 
-//We use the same code that the exercice4 of prac03 to make a generic table
-function showTable (array $data, ?array $header) : string {
-    $txtTableStyle = "<style>\ntable, th, td {\nborder: 1px solid black;\nborder-collapse: collapse;\n}\n</style>";
+//We use the similar code that the exercice4 of prac03 to make a generic table
+function generateTable (array $data, array $header) : string {
+    $txtTableStyle = "<style>\ntable, th, td {\nborder: 1px solid black;\nborder-collapse: collapse; margin: 0 auto; padding: 0 20px; }\n</style>";
     $txtTableBegin = "<table>\n";
     $txtTableHeader = "";
     $txtTableBody = "";
     $txtTableEnd = "</table>";
 
-    // If the $header is informed, we take those values ​​to create it
-    // Otherwise we use the keys from the table $data
-    $header = generateHeader($data,$header);
-
     // First make the header of the table
-    $txtTableHeader = makeGenericTableHeader($header);
+    $txtTableHeader = makeTableHeader($header);
 
     // Second make de body of the table
-    $txtTableBody = makeGenericTableBody($data);
+    $txtTableBody = makeTableData($data);
 
     return $txtTableStyle . $txtTableBegin . $txtTableHeader . $txtTableBody . $txtTableEnd; 
 }
 
-function generateHeader(array $data, ?array $header) : array {
-    $newHeader = [];
 
-    // We take header values from the key of $data 
-    foreach($data[0] as $key => $value) {
-        array_push($newHeader,$key);
-    }
-
-    // If $header have values, we update the header values
-    foreach($newHeader as $key => $value) {
-         $newHeader[$key] = isset($header[$key]) ? $header[$key] : $newHeader[$key];
-    }
-
-    return $newHeader;
-}
-
-
-function makeGenericTableHeader(array $header) : string {
-    $txtHeader = "<tr>\n";
+function makeTableHeader(array $header) : string {
+    $txtHeader = "<tr style='background-color: rgb(255, 255, 200);'>\n";
 
     foreach($header as $value) {
         $txtHeader = $txtHeader."<th>$value</th>\n";
@@ -147,14 +127,19 @@ function makeGenericTableHeader(array $header) : string {
 
 }
 
-function makeGenericTableBody(array $body) : string {
-    $txtBody = "";
 
-    foreach($body as $content) {
+function makeTableData(array $data) : string {
+    $txtBody = "";
+  
+    foreach($data as $row) {
 
         $txtBody = $txtBody."<tr>\n";
 
-        foreach ($content as $value) {
+        //Add the button column
+        $txtBody = $txtBody . '<td style="background-color: rgb(255, 255, 200);"><input type="submit" class="btnGreen" name="edit' . $row["id"] . '" value="Edit/View"/></td>';
+
+        //Add the rest of the valuescellpadding='10'
+        foreach ($row as $value) {
             $txtBody = $txtBody . "<td>$value</td>\n";
         }
 
@@ -164,3 +149,4 @@ function makeGenericTableBody(array $body) : string {
     return $txtBody;
 
 }
+

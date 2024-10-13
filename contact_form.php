@@ -53,25 +53,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
  
 } 
-        
+
+include __DIR__ . '/parts/head.part.php';
+include __DIR__ . '/parts/header.part.php';
+
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Contact App</title>	
-    <meta charset="UTF-8">
-    <meta name="author" content="Salvador Chaveli (juachalli)">
-    <meta name="description" content="Unit 04. PHP and Forms - Practice">
-    <link rel="stylesheet" type="text/css" href="./main.css">    
-</head>
-
-<body>
-
-<h1>Contact</h1>
-
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    <hr>
+    <h1>Contact</h1>
+    <hr>
     <div>
         <label for="id">ID</label>
         <input type="text" id="id" name="id" value="<?= $contact['id'] ?? '' ?>" readonly><br>
@@ -121,9 +113,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="submit" class="btnRedDisabled" name="delete" value="Delete" disabled/> <!--In this practice we won’t use the Delete button-->
     </div>
     <div>
-        <p><a href="index.html">Back to main page</a></p>
+        <p><a href="index.php">Back to main page</a></p>
     </div>    
 </form>
     
-</body>
-</html>
+<?php include __DIR__ . '/parts/footer.part.php'; ?>
+

@@ -3,11 +3,15 @@ h1, p {
     text-align: center;
 }
 
+h3 {
+    text-align: center;
+}
+
 form {
     width: 50%; 
     margin: auto;
     border: 1px solid #ccc;
-    padding: 20px;
+    padding: 20px;          
     border-radius: 5px;
     box-shadow: 2px 2px 12px #aaa; 
 }  
@@ -24,7 +28,6 @@ div {
 input {
     margin: 5px;
 }
-
 
 .error {
     color: red;

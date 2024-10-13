@@ -8,8 +8,6 @@ session_start();
 
 if (isset($_SESSION['contact'])) {
 
-    echo "<h1>“No errors!”</h1>";
-
     $contact = $_SESSION['contact'];
 
     //We get the array of contacts we are working with, stored en a session variable named "contacts"
@@ -17,11 +15,7 @@ if (isset($_SESSION['contact'])) {
     //If we don't have any, we use the original array from "data.php"
     $contacts = isset($_SESSION['contacts']) ? $_SESSION['contacts'] : require_once __DIR__.'/data.php';
     
-} else {
-
-    echo "<h1>No contact data</h1>";
-
-}
+} 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
@@ -32,30 +26,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (isset($_POST['cancel'])) {
-        header("Location:index.html");
+        header("Location:contact_list.php");
     }
  
 } 
 
-
-//session_destroy();
+include __DIR__ . '/parts/head.part.php';
+include __DIR__ . '/parts/header.part.php';
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Contact App</title>	
-    <meta charset="UTF-8">
-    <meta name="author" content="Salvador Chaveli (juachalli)">
-    <meta name="description" content="Unit 04. PHP and Forms - Practice">
-    <link rel="stylesheet" type="text/css" href="./main.css">    
-</head>
-
-<body>
     <form method="post" action="<?php $_SERVER["PHP_SELF"];?>">
-        <p><b>=> <u><?= ($contact['id'] ?? '') == '' ? 'NEW Contact data' : 'UPDATE Contact data' ?></u> <=</b></p>
+        <?=isset($_SESSION['contact']) ? "<h1>No errors!</h1>" : "<h1>No contact data</h1>"?>
         <div>
+        <p><b>=> <u><?= ($contact['id'] ?? '') == '' ? 'NEW Contact data' : 'UPDATE Contact data' ?></u> <=</b></p>            
         <p><b>ID:</b> <?=$contact['id'] ?? ''?> </p>
         <p><b>Title:</b> <?=$contact['title'] ?? '' ?> </p>
         <p><b>First Name:</b> <?=$contact['name'] ?? '' ?> </p>
@@ -73,5 +57,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </form>
     
-</body>
-</html>
+<?php include __DIR__ . '/parts/footer.part.php'; ?>

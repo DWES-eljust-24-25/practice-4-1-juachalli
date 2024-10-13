@@ -12,6 +12,7 @@ session_start();
 //If we don't have any, we use the original array from "data.php"
 $contacts = isset($_SESSION['contacts']) ? $_SESSION['contacts'] : require_once __DIR__.'/data.php';
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     //We click new => we go to the contcat_form without parameters to create a new contact
@@ -30,47 +31,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } 
 
+include __DIR__ . '/parts/head.part.php';
+include __DIR__ . '/parts/header.part.php';
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Contact App</title>	
-    <meta charset="UTF-8">
-    <meta name="author" content="Salvador Chaveli (juachalli)">
-    <meta name="description" content="Unit 04. PHP and Forms - Practice">
-    <link rel="stylesheet" type="text/css" href="./main.css">    
-</head>
-
-<body>
-
-<h1>Contact List</h1>
-
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    <div>
+    <hr>
+    <h1>Contact List</h1>
+    <hr>
+    <div style="text-align:center;">
         <input type="submit" class="btnGreen" name="new" value="Create new contact"/>
     </div>
     <div>
         <?php    
-            //$headerTable = array("","ID","Title","Name","Surname");
-            //$bodyTable = [];
-            //echo showTable($bodyTable,$headerTable);
-            echo "<br>";    
-            foreach ($contacts as $contactRow) {
-            print_r ($contactRow);
-        ?> 
-        <input type="submit" class="btnGreen" name="edit<?= $contactRow['id'] ?>" value="Edit/View"/>
+            //We define the header table
+            $headerTable = array("","ID","Title","Name","Surname");
 
-        <?php 
-            echo "<hr>";
+            //We define the values ​​of the contacts we want to display
+            $dataTable=[];
+            foreach($contacts as $contact) {
+                array_push($dataTable,array("id" => $contact['id'],
+                                            "title" => $contact['title'],
+                                            "name" => $contact['name'],
+                                            "" => $contact['surname']));
             }
-        ?>
+
+            //We call de showTable function to generate the html table
+            echo generateTable($dataTable,$headerTable);
+        ?> 
     </div>
     <div>
-        <p><a href="index.html">Back to main page</a></p>
+        <p><a href="index.php">Back to main page</a></p>
     </div>
 </form>
 
-</body>
-</html>
+<?php include __DIR__ . '/parts/footer.part.php'; ?>
