@@ -1,6 +1,4 @@
 <!-- head.part.php -->
- 
-<?php include __DIR__ . '/main.part.php'; ?>
 
 <!DOCTYPE html>
 

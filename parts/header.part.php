@@ -1,7 +1,5 @@
 <!-- header.part.php -->
 
-<?php include __DIR__ . '/main.part.php'; ?>
-
 <body>
 
 <header>

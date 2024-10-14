@@ -1,6 +1,4 @@
 <!-- footer.part.php -->
- 
-<?php include __DIR__ . '/main.part.php'; ?>
 
 <br>
 <hr>

@@ -2,16 +2,15 @@
 //In this script, do the contact list table
 declare(strict_types=1);
 
-//$contacts = require_once __DIR__.'/data.php';
-require_once __DIR__ . "/functions.php";        
+require_once __DIR__.'/main.php';
 
 session_start();
 
 //We get the array of contacts we are working with, stored en a session variable named "contacts"
 //If we have one already defined, we use it
 //If we don't have any, we use the original array from "data.php"
-$contacts = isset($_SESSION['contacts']) ? $_SESSION['contacts'] : require_once __DIR__.'/data.php';
-
+//$contacts = isset($_SESSION['contacts']) ? $_SESSION['contacts'] : require_once __DIR__.'/data.php';
+$contacts = isset($_SESSION['contacts']) ?? loadContacts();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     

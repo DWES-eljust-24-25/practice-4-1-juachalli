@@ -8,4 +8,11 @@ $authorName = "Salvador Chaveli (juachalli)";
 $pageHeader = "Contact App 24/25 --- Server-side Web Development";
 $pageFooter = "Developed by <b>" . $authorName ."</b> --- 2nd DAW --- 2024/2025 ";
 
+
+//Include / Require modules
+require_once __DIR__ . "/Contact.php";
+require_once __DIR__ . "/data.php";
+require_once __DIR__ . "/functions.php";
+
+
 ?>
