@@ -39,12 +39,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['contacts'] = $contacts;
 
     if (isset($_POST['save'])) {
-        $errors = validateContact($contact);
+        $errors = $contact->validate();//validateContact($contact);
         empty($errors) ? header("Location:checkdata.php") : '';
     }
 
     if (isset($_POST['update'])) {
-        $errors = validateContact($contact);
+        $errors = $contact->validate();//validateContact($contact);
         empty($errors) ? header("Location:checkdata.php") : '';
     }
 
@@ -53,6 +53,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
  
 } 
+
+
+// Call the function that return number of days until the birthday
+$daysUntilBirthday = $contact->checkBirthday(); 
+$messageUntilBirthday = "";
+
+ // If $daysUntilBirthday is null, it means that they have passed the date wrong in the parameter.
+if (is_numeric($daysUntilBirthday)) {
+
+	if ($daysUntilBirthday == 0) {
+        $messageUntilBirthday = " => Today is " . $contact->getName() . "'s birthday. Congratulations!! <=";
+	} else {
+		if ($daysUntilBirthday > 0 && $daysUntilBirthday <= 7) {
+			$messageUntilBirthday = " => There are " . $daysUntilBirthday . " days left for " . $contact->getName() . "'s birthday!! <=";
+		} else {
+			//$messageUntilBirthday = " => There are " . $daysUntilBirthday . " days away for " . $contact->getName() . "'s birthday!!.... is not close!! <=";
+		}
+	}
+
+} else {
+	//// If the Birthday date is not correct
+	//$messageUntilBirthday = "We have not been able to get the days until the birthday";
+}
+
+
 
 include __DIR__ . '/parts/head.part.php';
 include __DIR__ . '/parts/header.part.php';
@@ -87,7 +112,7 @@ include __DIR__ . '/parts/header.part.php';
         <span class="error"> <?= $errors['surname'] ?? '' ?> </span> <br>
 
         <label for="birthdate">Birth date</label>
-        <input type="date" id="birthdate" name="birthdate" value="<?= $contact->getBirthdate() ?>"> <br>
+        <input type="date" id="birthdate" name="birthdate" value="<?= $contact->getBirthdate() ?>"> <?= $messageUntilBirthday ?> <br>
         <span class="error"> <?= $errors['birthdate'] ?? '' ?> </span> <br>
 
         <label for="phone">Phone</label>

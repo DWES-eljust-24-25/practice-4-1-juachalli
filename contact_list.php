@@ -57,6 +57,8 @@ include __DIR__ . '/parts/header.part.php';
             //We call de showTable function to generate the html table
             echo generateTable($dataTable,$headerTable);
             
+            //It is not requested in practice but we take advantage of it
+            //to display the data using the method Contact__toString()
             echo "<br><hr><br>";
             echo "<p><b><u>Contact List generated using the method Contact__toString()</u></b></p>";
             echo "<hr>";

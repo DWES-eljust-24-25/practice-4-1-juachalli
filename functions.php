@@ -2,6 +2,7 @@
 //In this script, place the functions
 declare(strict_types=1);
 
+/*
 function validateContact(Contact $contact): array {
     $errors = [];
 
@@ -35,6 +36,7 @@ function validateContact(Contact $contact): array {
 
     return $errors;
 }
+*/
 /* U04
 function validateContact(array $contact): array {
     $errors = [];
