@@ -71,12 +71,12 @@ class Contact
     //Override __toString()
     public function __toString() : string {
         return
-            "Id: " . $this->id . "\n" .
-            "Contact: " . $this->title . " " . $this->name . " " . $this->surname . "\n" .
-            "Birth Date" . $this->birthdate . "\n" .
-            "Phone: " . $this->phone . "\n" .
-            "E-mail: " . $this->email . "\n" .
-            "Type: " . ($this->favourite ? '[Favourite] ' : '') .  ($this->important ? '[Important] ' : '') . ($this->archived ? '[Archived]' : '');
+            "Id: " . $this->id . "<br>" .
+            "Contact: " . $this->title . " " . $this->name . " " . $this->surname . "<br>" .
+            "Birth Date" . $this->birthdate . "<br>" .
+            "Phone: " . $this->phone . "<br>" .
+            "E-mail: " . $this->email . "<br>" .
+            "Type: " . ($this->favourite ? '[Favourite] ' : '') .  ($this->important ? '[Important] ' : '') . ($this->archived ? '[Archived]' : '') . "<br>";
     }
 
 }

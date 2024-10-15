@@ -8,7 +8,7 @@ include __DIR__ . '/parts/header.part.php';
     <form>
         <div>
             <hr>
-            <h1>Practice DES - Contact App</h1>
+            <h1>Practice DWES - Contact App</h1>
             <hr>
             <br>
             This practice consists of the first of a series of practices, consisting of a Contacts application.<br>
