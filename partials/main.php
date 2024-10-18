@@ -1,4 +1,4 @@
-<!-- main.part.php -->
+<!-- main.php -->
 
 <?php 
 
@@ -10,9 +10,9 @@ $pageFooter = "Developed by <b>" . $authorName ."</b> --- 2nd DAW --- 2024/2025 
 
 
 //Include / Require modules
-require_once __DIR__ . "/Contact.php";
-require_once __DIR__ . "/data.php";
-require_once __DIR__ . "/functions.php";
+require_once __DIR__ . "/../models/Contact.php";
+require_once __DIR__ . "/../data/data.php";
+require_once __DIR__ . "/../helpers/functions.php";
 
 
 ?>

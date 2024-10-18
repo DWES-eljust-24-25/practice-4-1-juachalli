@@ -1,7 +1,7 @@
 <?php 
-require_once __DIR__.'/main.php';
-include __DIR__ . '/parts/head.part.php';
-include __DIR__ . '/parts/header.part.php'; 
+require_once __DIR__. '/partials/main.php';
+include_once __DIR__ .'/partials/head.php';
+include_once __DIR__ .'/partials/header.php'; 
 
 ?>
 
@@ -24,10 +24,10 @@ include __DIR__ . '/parts/header.part.php';
         <div>
             <hr>
             <h1>Main menu</h1>
-            <p><a href="contact_form.php">Create a new contact</a></p>
-            <p><a href="contact_list.php">View contact list</a></p>
+            <p><a href="./views/contact_form.php">Create a new contact</a></p>
+            <p><a href="./views/contact_list.php">View contact list</a></p>
             <hr>
         </div>        
     </form>
 
-<?php include __DIR__ . '/parts/footer.part.php'; ?>
+<?php include_once __DIR__ . '/partials/footer.php'; ?>

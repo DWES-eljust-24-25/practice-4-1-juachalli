@@ -2,7 +2,7 @@
 //This script is to show the validated data from contact.php
 declare(strict_types=1);
 
-require_once __DIR__.'/main.php';
+require_once __DIR__.'/../partials/main.php';
 
 session_start();
 
@@ -29,8 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
  } 
 
-include __DIR__ . '/parts/head.part.php';
-include __DIR__ . '/parts/header.part.php';
+include_once __DIR__ . '/../partials/head.php';
+include_once __DIR__ . '/../partials/header.php';
 
 ?>
 
@@ -55,4 +55,4 @@ include __DIR__ . '/parts/header.part.php';
         </div>
     </form>
 
-<?php include __DIR__ . '/parts/footer.part.php'; ?>
+<?php include_once __DIR__ . '/../partials/footer.php'; ?>

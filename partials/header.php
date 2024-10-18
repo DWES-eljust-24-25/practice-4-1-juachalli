@@ -1,4 +1,4 @@
-<!-- header.part.php -->
+<!-- header.php -->
 
 <body>
 

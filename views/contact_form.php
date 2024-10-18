@@ -2,7 +2,7 @@
 // In this script do the self-validated form
 declare(strict_types=1);
 
-require_once __DIR__.'/main.php';
+require_once __DIR__.'/../partials/main.php';
 
 session_start();
 
@@ -63,10 +63,10 @@ $messageUntilBirthday = "";
 if (is_numeric($daysUntilBirthday)) {
 
 	if ($daysUntilBirthday == 0) {
-        $messageUntilBirthday = " => Today is " . $contact->getName() . "'s birthday. Congratulations!! <=";
+        $messageUntilBirthday = " Today is " . $contact->getName() . "'s birthday. Congratulations!!";
 	} else {
 		if ($daysUntilBirthday > 0 && $daysUntilBirthday <= 7) {
-			$messageUntilBirthday = " => There are " . $daysUntilBirthday . " days left for " . $contact->getName() . "'s birthday!! <=";
+			$messageUntilBirthday = " There are " . $daysUntilBirthday . " days left for " . $contact->getName() . "'s birthday!!";
 		} else {
 			//$messageUntilBirthday = " => There are " . $daysUntilBirthday . " days away for " . $contact->getName() . "'s birthday!!.... is not close!! <=";
 		}
@@ -79,8 +79,8 @@ if (is_numeric($daysUntilBirthday)) {
 
 
 
-include __DIR__ . '/parts/head.part.php';
-include __DIR__ . '/parts/header.part.php';
+include_once __DIR__ . '/../partials/head.php';
+include_once __DIR__ . '/../partials/header.php';
 
 
 ?>
@@ -138,9 +138,9 @@ include __DIR__ . '/parts/header.part.php';
         <input type="submit" class="btnRedDisabled" name="delete" value="Delete" disabled/> <!--In this practice we won’t use the Delete button-->
     </div>
     <div>
-        <p><a href="index.php">Back to main page</a></p>
+        <p><a href="../index.php">Back to main page</a></p>
     </div>
 </form>
 
-<?php include __DIR__ . '/parts/footer.part.php'; ?>
+<?php include_once __DIR__ . '/../partials/footer.php'; ?>
 

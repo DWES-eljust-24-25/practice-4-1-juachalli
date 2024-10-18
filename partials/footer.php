@@ -1,4 +1,4 @@
-<!-- footer.part.php -->
+<!-- footer.php -->
 
 <br>
 <hr>

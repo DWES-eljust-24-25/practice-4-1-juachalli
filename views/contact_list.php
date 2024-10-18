@@ -2,7 +2,7 @@
 //In this script, do the contact list table
 declare(strict_types=1);
 
-require_once __DIR__.'/main.php';
+require_once __DIR__.'/../partials/main.php';
 
 session_start();
 
@@ -28,8 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } 
 
-include __DIR__ . '/parts/head.part.php';
-include __DIR__ . '/parts/header.part.php';
+include_once __DIR__ . '/../partials/head.php';
+include_once __DIR__ . '/../partials/header.php';
 
 ?>
 
@@ -60,17 +60,18 @@ include __DIR__ . '/parts/header.part.php';
             //It is not requested in practice but we take advantage of it
             //to display the data using the method Contact__toString()
             echo "<br><hr><br>";
-            echo "<p><b><u>Contact List generated using the method Contact__toString()</u></b></p>";
+            echo "<p><b><u>Another way to present the contact list<br>using the Contact__toString() method</u></b></p>";
             echo "<hr>";
 
             foreach($contacts as $contact) {
-                echo "<div><p>" . $contact->__toString() . "</p></div>";
+                //echo "<div><p>" . $contact->__toString() . "</p></div>";
+                echo "<div><div><p><button name='edit" . $contact->getId() . "'>" . $contact->__toString() . "</button></p></div></div>";
             }
         ?> 
     </div>
     <div>
-        <p><a href="index.php">Back to main page</a></p>
+        <p><a href='../index.php'>Back to main page</a></p>
     </div>
 </form>
 
-<?php include __DIR__ . '/parts/footer.part.php'; ?>
+<?php include_once __DIR__ . '/../partials/footer.php'; ?>
